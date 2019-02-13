@@ -27,7 +27,9 @@ SECRET_KEY = '7=ye0q(5!93+=3_*4d3wt5eju!9zsy=anmsk2pq#usyh9)xb3!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        'www.amgbanks.com',
+]
 
 
 # Application definition
