@@ -1,0 +1,92 @@
+.nav-container
+    grid-row: 1
+    width: 100%
+    background: $dark
+
+nav
+    max-width: 1720px
+    margin: 0 auto
+    display: grid
+    grid-template-columns: 2fr auto 1fr
+
+    a
+        text-decoration: none
+        color: $light
+        font-size: 1.25em
+        font-weight: bold
+
+.nav-menu
+    grid-area: 2 / 1 / 2 / -1
+    display: none
+    text-align: center
+
+    background: $light
+
+    a
+        color: $dark
+        padding: 0.125em 0 0.125em 0
+
+.logo
+    grid-column: 1
+    grid-row: 1
+    padding: 0.1em 0 0.1em 0.25em
+
+    font-size: 2em
+    font-variant: small-caps
+    font-weight: bold
+    letter-spacing: 0.03em
+
+.chevron-menu
+    grid-column: 3
+    grid-row: 1
+    color: $light
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    padding-right: 0.5em
+    cursor: pointer
+
+#nav-toggle
+    display: none
+
+#nav-toggle:checked ~ .nav-menu
+    display: grid
+    grid-row: 2
+    border-top: 0.2em solid $accent
+    border-bottom: 0.1em solid $dark
+
+    a:active
+        background: $accent
+        color: $light
+
+@media only screen and (min-width: 768px)
+    #nav-toggle, .chevron-menu
+        display: none
+
+    nav
+        a:hover
+            color: lighten($light, 10%)
+        a:active
+            color: darken($light, 10%)
+
+    .nav-menu
+        display: flex
+        grid-area: 1 / 1 / 1 / -1
+        justify-content: flex-start
+        align-items: center
+        background: $dark
+        padding-top: 0
+        
+        a
+            color: $light
+            padding: 0.625em 0.5em 0.625em 0.5em
+
+        .nav-right
+            margin-left: auto
+            background: $accent
+
+    .logo
+        grid-column: 2
+        margin: auto
+        
+

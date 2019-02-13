@@ -1,0 +1,169 @@
+.nav-container {
+  grid-row: 1;
+  width: 100%;
+  background: #292824; }
+
+nav {
+  max-width: 1720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr auto 1fr; }
+  nav a {
+    text-decoration: none;
+    color: #d8d7d9;
+    font-size: 1.25em;
+    font-weight: bold; }
+
+.nav-menu {
+  grid-area: 2/1/2/-1;
+  display: none;
+  text-align: center;
+  background: #d8d7d9; }
+  .nav-menu a {
+    color: #292824;
+    padding: 0.125em 0 0.125em 0; }
+
+.logo {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 0.1em 0 0.1em 0.25em;
+  font-size: 2em;
+  font-variant: small-caps;
+  font-weight: bold;
+  letter-spacing: 0.03em; }
+
+.chevron-menu {
+  grid-column: 3;
+  grid-row: 1;
+  color: #d8d7d9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 0.5em;
+  cursor: pointer; }
+
+#nav-toggle {
+  display: none; }
+
+#nav-toggle:checked ~ .nav-menu {
+  display: grid;
+  grid-row: 2;
+  border-top: 0.2em solid #c04011;
+  border-bottom: 0.1em solid #292824; }
+  #nav-toggle:checked ~ .nav-menu a:active {
+    background: #c04011;
+    color: #d8d7d9; }
+
+@media only screen and (min-width: 768px) {
+  #nav-toggle, .chevron-menu {
+    display: none; }
+
+  nav a:hover {
+    color: #f1f1f2; }
+  nav a:active {
+    color: #bfbdc0; }
+
+  .nav-menu {
+    display: flex;
+    grid-area: 1/1/1/-1;
+    justify-content: flex-start;
+    align-items: center;
+    background: #292824;
+    padding-top: 0; }
+    .nav-menu a {
+      color: #d8d7d9;
+      padding: 0.625em 0.5em 0.625em 0.5em; }
+    .nav-menu .nav-right {
+      margin-left: auto;
+      background: #c04011; }
+
+  .logo {
+    grid-column: 2;
+    margin: auto; } }
+.home-content {
+  height: 100%;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: auto 1fr; }
+
+.hero-image {
+  grid-row: 1;
+  grid-column: 1;
+  height: 51.6795865633vw;
+  background: url("/static/media/backgrounds/hvalnes/hvalnes-600x310.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.welcome {
+  grid-row: 2;
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column; }
+  .welcome .welcome-wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2.5em;
+    color: #292824; }
+  .welcome h1 {
+    padding-bottom: 0.25em; }
+
+@media only screen and (min-width: 568px) {
+  .home-content {
+    grid-template-rows: 1fr; }
+
+  .hero-image {
+    height: 100%;
+    background-image: url("/static/media/backgrounds/hvalnes/hvalnes-1548x800.jpg");
+    background-size: cover; }
+
+  .welcome {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .welcome .welcome-wrapper {
+      background: rgba(41, 40, 36, 0.8);
+      color: #d8d7d9;
+      height: auto;
+      width: 60vw;
+      border-radius: 0.2em;
+      box-shadow: 0.2em 0.2em 0.3em rgba(41, 40, 36, 0.8);
+      justify-content: center; } }
+@media only screen and (orientation: landscape) and (min-width: 1024px) {
+  .welcome {
+    align-items: flex-start;
+    padding-bottom: 10vh;
+    padding-left: 5vw; }
+    .welcome .welcome-wrapper {
+      height: auto;
+      width: 30%; } }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+html,
+body {
+  height: 100%;
+  width: 100%; }
+
+body {
+  font-family: Droid Sans, sans-serif;
+  background-color: #d8d7d9; }
+  body ::selection {
+    background: #c04011;
+    color: #f1f1f2; }
+
+.main-content {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr; }
+
+/*# sourceMappingURL=style.css.map */
