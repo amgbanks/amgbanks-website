@@ -1,0 +1,5 @@
+django
+selenium
+gunicorn
+django-heroku
+whitenoise

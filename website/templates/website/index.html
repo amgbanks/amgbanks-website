@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatabile" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Andrew Banks</title>
+
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <!--
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css" integrity="sha384-r/k8YTFqml0aqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+        -->
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css">
+
+        
+    </head>
+
+    <body>
+
+        <div class="main-content">
+        
+            <!-- navbar for all pages -->
+            <div class="nav-container">
+                <nav>
+                    <input type="checkbox" id="nav-toggle">
+                    <label for="nav-toggle" class="chevron-menu">
+                         <i class="fas fa-chevron-down"></i>
+                    </label>
+                    
+                    <div class="nav-menu">
+                        <a href="#">About</a>
+                        <a href="#">Resume</a>
+                        <a href="#">Photography</a>
+                        <a href="#" class="nav-right">Contact</a>                    </div>
+                        
+                    <a href="" class="logo">Andrew Banks</a>
+
+
+
+                </nav>
+            </div>
+
+
+            {% autoescape off %}
+            {% block content %}
+            {% endblock %}
+            {% endautoescape %}
+
+            </div>
+
+
+    </body>
+</html>
