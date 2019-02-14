@@ -89,8 +89,8 @@ nav {
 .hero-image {
   grid-row: 1;
   grid-column: 1;
-  height: 51.6795865633vw;
-  background: url("/static/media/backgrounds/hvalnes/hvalnes-600x310.jpg");
+  height: 51.6666666667vw;
+  background: url("/static/media/backgrounds/hvalnes/hvalnes_lqr600x310.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain; }
@@ -118,7 +118,7 @@ nav {
 
   .hero-image {
     height: 100%;
-    background-image: url("/static/media/backgrounds/hvalnes/hvalnes-1548x800.jpg");
+    background-image: url("/static/media/backgrounds/hvalnes/hvalnes_lqr1600x827.jpg");
     background-size: cover; }
 
   .welcome {
