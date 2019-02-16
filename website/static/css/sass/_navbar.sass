@@ -2,7 +2,7 @@
     from
         height: 0
     to
-        height: 7.5em
+        height: 10rem
 
 +keyframes(fadeIn)
     from
@@ -13,14 +13,14 @@
 .nav-container
     grid-row: 1
     width: 100%
-    //background-image: linear-gradient(lighten($dark, 12.5%), $dark)
+    line-height: 1
+    
     +linear-gradient(lighten($dark, 12.5%), $dark)
-    box-shadow: 0 0.1em 0.25em rgba($dark, 0.8)
+    box-shadow: 0 0.1rem 0.25rem rgba($dark, 0.8)
     z-index: 9999
     
 
 nav
-    max-width: 1720px
     margin: 0 auto
     display: grid
     grid-template-columns: 2fr auto 1fr
@@ -28,7 +28,7 @@ nav
     a
         text-decoration: none
         color: $light
-        font-size: 1.25em
+        font-size: 1.4rem
         font-weight: bold
 
         &:hover
@@ -40,23 +40,24 @@ nav
     display: none
     grid-area: 2 / 1 / 2 / -1
     transition: height 0.25s
+    padding: 0.05rem 0
 
     text-align: center
 
     a
         color: $dark
-        padding: 0.125em 0 0.125em 0
+        padding: 0.5rem 0
 
 .logo
     grid-column: 1
     grid-row: 1
     margin: auto auto auto 0
-    padding: 0.1em 0.25em 0.1em 0.25em
+    padding: 0.5rem 1rem
 
-    font-size: 2em
+    font-size: 2.4rem
     font-variant: small-caps
     font-weight: bold
-    letter-spacing: 0.03em
+    letter-spacing: 0.08rem
 
 .chevron-menu
     grid-column: 3
@@ -66,8 +67,9 @@ nav
     display: flex
     justify-content: flex-end
     align-items: center
-    padding: 1em
+    padding: 1rem
     cursor: pointer
+    font-size: 1.6rem
 
     transition: transform 0.1s
 
@@ -94,12 +96,11 @@ nav
         display: grid
         +animation(dropDown 1s)
 
-        //background-image: linear-gradient(to bottom right, lighten($light, 10%), $light)
         +linear-gradient(to bottom right, lighten($light, 10%), $light)  
-        border-top: 0.2em solid $accent
-        border-bottom: 0.1em solid $dark
+        border-top: 0.2rem solid $accent
+        border-bottom: 0.1rem solid $dark
 
-        height: 7.5em
+        height: 10rem
 
         a:first-child
             +animation(fadeIn 0.125s 0.125s backwards)
@@ -112,12 +113,12 @@ nav
 
         a:hover,
         a:active
-            background: $accent
+            background-image: linear-gradient(to right, $accent, lighten($accent, 10%), $accent)
         
         a:hover,
-            color: $light
+            color: lighten($light, 10%)
         a:active
-            color: lighten($light, 5%)
+            color: $light
 
 
 
@@ -127,12 +128,6 @@ nav
     .chevron-menu
         display: none
 
-    nav
-        a:hover
-            color: lighten($light, 5%)
-        a:active
-            color: darken($light, 15%)
-
     #nav-toggle:checked ~ .nav-menu,
     .nav-menu
         display: flex
@@ -140,15 +135,15 @@ nav
         justify-content: flex-start
         align-items: center
         
-        //background-image: linear-gradient(lighten($dark, 10%), $dark)
-        +linear-gradient(lighten($dark, 10%), $dark)  
-        padding-top: 0
+        +linear-gradient(lighten($dark, 10%), $dark)
         border: none
         height: auto
+        padding: 0
         
         a
+            font-size: 1.8rem
             color: $light
-            padding: 0.625em 0.5em 0.625em 0.5em
+            padding: 1rem
 
         .nav-right
             margin-left: auto
@@ -157,4 +152,5 @@ nav
     #nav-toggle:checked ~ .logo,
     .logo
         grid-column: 2
+        font-size: 2.8rem
         
