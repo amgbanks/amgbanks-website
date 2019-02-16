@@ -1,0 +1,26 @@
+// keyframes
+// +keyframes(name)
+//     from
+//         rules
+//     to
+//         rules
+=keyframes($name)
+    @-webkit-keyframes #{$name}
+        @content
+    @-moz-keyframes #{name}
+        @content
+    @-ms-keyframes #{name}
+        @content
+    @-o-keyframes #{name}
+        @content
+    @keyframes #{name}
+        @content
+
+// animation
+// +animation(animate)
+=animation($animate)
+    -webkit-animation: $animate
+    -moz-animation: $animate
+    -ms-animation: $animate
+    -o-animation: $animate
+    animation: $animate

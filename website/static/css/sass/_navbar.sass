@@ -1,3 +1,9 @@
++keyframes(dropDown)
+    from
+        height: 0
+    to
+        height: 7.5em
+
 .nav-container
     grid-row: 1
     width: 100%
@@ -8,6 +14,9 @@ nav
     margin: 0 auto
     display: grid
     grid-template-columns: 2fr auto 1fr
+    box-sizing: border-box
+    z-index: 100
+    box-shadow: 5em 5em rgba($dark, 0.8)
 
     a
         text-decoration: none
@@ -15,9 +24,15 @@ nav
         font-size: 1.25em
         font-weight: bold
 
+        &:hover
+            color: lighten($light, 5%)
+        &:active
+            color: darken($light, 15%)
+
 .nav-menu
     display: none
     grid-area: 2 / 1 / 2 / -1
+    transition: height 0.25s
 
     text-align: center
 
@@ -28,7 +43,8 @@ nav
 .logo
     grid-column: 1
     grid-row: 1
-    padding: 0.1em 0 0.1em 0.25em
+    margin: auto auto auto 0
+    padding: 0.1em 0.25em 0.1em 0.25em
 
     font-size: 2em
     font-variant: small-caps
@@ -38,11 +54,12 @@ nav
 .chevron-menu
     grid-column: 3
     grid-row: 1
+    margin: auto 0 auto auto
     color: $light
     display: flex
     justify-content: flex-end
     align-items: center
-    padding-right: 0.5em
+    padding: 1em
     cursor: pointer
 
     transition: transform 0.1s
@@ -51,27 +68,33 @@ nav
     display: none
 
 #nav-toggle:checked
+
     & ~ .chevron-menu
         transform: scaleY(-1)
         transition: transform 1s
 
         &:active ~ .nav-menu
             height: 0
-            border: none
-            animation: dropUp 0.25s
-
+            border: none    
+    
     & ~ .nav-menu
         display: grid
-        animation: dropDown 1s
+        +animation(dropDown 1s)
 
         background: $light
         border-top: 0.2em solid $accent
         border-bottom: 0.1em solid $dark
 
+        height: 7.5em
+
+        a:hover,
         a:active
             background: $accent
+        
+        a:hover,
             color: $light
-
+        a:active
+            color: lighten($light, 5%)
 
 
 
@@ -83,9 +106,9 @@ nav
 
     nav
         a:hover
-            color: lighten($light, 10%)
+            color: lighten($light, 5%)
         a:active
-            color: darken($light, 10%)
+            color: darken($light, 15%)
 
     #nav-toggle:checked ~ .nav-menu,
     .nav-menu
@@ -96,6 +119,7 @@ nav
         background: $dark
         padding-top: 0
         border: none
+        height: auto
         
         a
             color: $light
@@ -108,19 +132,4 @@ nav
     #nav-toggle:checked ~ .logo,
     .logo
         grid-column: 2
-        margin: auto
         
-@keyframes dropDown
-    from
-        height: 0
-    to
-        height: 7.5em
-
-@keyframes dropUp
-    from
-        height: 7.5em
-        border-top: 0.2em solid $accent
-        border-bottom: 0.1em solid $dark
-    to
-        height: 0
-        border: none
