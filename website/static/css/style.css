@@ -57,7 +57,7 @@
   background-image: -ms-linear-gradient(#4b4942, #292824);
   background-image: -o-linear-gradient(#4b4942, #292824);
   background-image: linear-gradient(#4b4942, #292824);
-  box-shadow: 0 0.1rem 0.25rem rgba(41, 40, 36, 0.8);
+  box-shadow: 0 0.16rem 0.4rem rgba(41, 40, 36, 0.8);
   z-index: 9999; }
 
 nav {
@@ -258,7 +258,7 @@ nav {
       height: auto;
       width: 60vw;
       border-radius: 0.1rem;
-      box-shadow: 0.2rem 0.2rem 0.3rem rgba(41, 40, 36, 0.8);
+      box-shadow: 0.32rem 0.32rem 0.48rem rgba(41, 40, 36, 0.8);
       justify-content: center; } }
 @media only screen and (orientation: landscape) and (min-width: 1024px) {
   .welcome {
