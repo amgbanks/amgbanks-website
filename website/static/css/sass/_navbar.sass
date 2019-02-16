@@ -16,11 +16,10 @@ nav
         font-weight: bold
 
 .nav-menu
-    grid-area: 2 / 1 / 2 / -1
     display: none
-    text-align: center
+    grid-area: 2 / 1 / 2 / -1
 
-    background: $light
+    text-align: center
 
     a
         color: $dark
@@ -46,21 +45,40 @@ nav
     padding-right: 0.5em
     cursor: pointer
 
+    transition: transform 0.1s
+
 #nav-toggle
     display: none
 
-#nav-toggle:checked ~ .nav-menu
-    display: grid
-    grid-row: 2
-    border-top: 0.2em solid $accent
-    border-bottom: 0.1em solid $dark
+#nav-toggle:checked
+    & ~ .chevron-menu
+        transform: scaleY(-1)
+        transition: transform 1s
 
-    a:active
-        background: $accent
-        color: $light
+        &:active ~ .nav-menu
+            height: 0
+            border: none
+            animation: dropUp 0.25s
+
+    & ~ .nav-menu
+        display: grid
+        animation: dropDown 1s
+
+        background: $light
+        border-top: 0.2em solid $accent
+        border-bottom: 0.1em solid $dark
+
+        a:active
+            background: $accent
+            color: $light
+
+
+
+
 
 @media only screen and (min-width: 768px)
-    #nav-toggle, .chevron-menu
+    #nav-toggle,
+    .chevron-menu
         display: none
 
     nav
@@ -69,6 +87,7 @@ nav
         a:active
             color: darken($light, 10%)
 
+    #nav-toggle:checked ~ .nav-menu,
     .nav-menu
         display: flex
         grid-area: 1 / 1 / 1 / -1
@@ -76,6 +95,7 @@ nav
         align-items: center
         background: $dark
         padding-top: 0
+        border: none
         
         a
             color: $light
@@ -85,8 +105,22 @@ nav
             margin-left: auto
             background: $accent
 
+    #nav-toggle:checked ~ .logo,
     .logo
         grid-column: 2
         margin: auto
         
+@keyframes dropDown
+    from
+        height: 0
+    to
+        height: 7.5em
 
+@keyframes dropUp
+    from
+        height: 7.5em
+        border-top: 0.2em solid $accent
+        border-bottom: 0.1em solid $dark
+    to
+        height: 0
+        border: none

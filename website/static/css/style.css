@@ -15,10 +15,9 @@ nav {
     font-weight: bold; }
 
 .nav-menu {
-  grid-area: 2/1/2/-1;
   display: none;
-  text-align: center;
-  background: #d8d7d9; }
+  grid-area: 2/1/2/-1;
+  text-align: center; }
   .nav-menu a {
     color: #292824;
     padding: 0.125em 0 0.125em 0; }
@@ -40,14 +39,23 @@ nav {
   justify-content: flex-end;
   align-items: center;
   padding-right: 0.5em;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: transform 0.1s; }
 
 #nav-toggle {
   display: none; }
 
+#nav-toggle:checked ~ .chevron-menu {
+  transform: scaleY(-1);
+  transition: transform 1s; }
+  #nav-toggle:checked ~ .chevron-menu:active ~ .nav-menu {
+    height: 0;
+    border: none;
+    animation: dropUp 0.25s; }
 #nav-toggle:checked ~ .nav-menu {
   display: grid;
-  grid-row: 2;
+  animation: dropDown 1s;
+  background: #d8d7d9;
   border-top: 0.2em solid #c04011;
   border-bottom: 0.1em solid #292824; }
   #nav-toggle:checked ~ .nav-menu a:active {
@@ -55,7 +63,8 @@ nav {
     color: #d8d7d9; }
 
 @media only screen and (min-width: 768px) {
-  #nav-toggle, .chevron-menu {
+  #nav-toggle,
+  .chevron-menu {
     display: none; }
 
   nav a:hover {
@@ -63,23 +72,41 @@ nav {
   nav a:active {
     color: #bfbdc0; }
 
+  #nav-toggle:checked ~ .nav-menu,
   .nav-menu {
     display: flex;
     grid-area: 1/1/1/-1;
     justify-content: flex-start;
     align-items: center;
     background: #292824;
-    padding-top: 0; }
+    padding-top: 0;
+    border: none; }
+    #nav-toggle:checked ~ .nav-menu a,
     .nav-menu a {
       color: #d8d7d9;
       padding: 0.625em 0.5em 0.625em 0.5em; }
+    #nav-toggle:checked ~ .nav-menu .nav-right,
     .nav-menu .nav-right {
       margin-left: auto;
       background: #c04011; }
 
+  #nav-toggle:checked ~ .logo,
   .logo {
     grid-column: 2;
     margin: auto; } }
+@keyframes dropDown {
+  from {
+    height: 0; }
+  to {
+    height: 7.5em; } }
+@keyframes dropUp {
+  from {
+    height: 7.5em;
+    border-top: 0.2em solid #c04011;
+    border-bottom: 0.1em solid #292824; }
+  to {
+    height: 0;
+    border: none; } }
 .home-content {
   height: 100%;
   grid-row: 2;
