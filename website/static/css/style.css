@@ -23,19 +23,47 @@
     height: 0; }
   to {
     height: 7.5em; } }
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-ms-keyframes name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes name {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 .nav-container {
   grid-row: 1;
   width: 100%;
-  background: #292824; }
+  background-image: -webkit-linear-gradient(#4b4942, #292824);
+  background-image: -moz-linear-gradient(#4b4942, #292824);
+  background-image: -ms-linear-gradient(#4b4942, #292824);
+  background-image: -o-linear-gradient(#4b4942, #292824);
+  background-image: linear-gradient(#4b4942, #292824);
+  box-shadow: 0 0.1em 0.25em rgba(41, 40, 36, 0.8);
+  z-index: 9999; }
 
 nav {
   max-width: 1720px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr auto 1fr;
-  box-sizing: border-box;
-  z-index: 100;
-  box-shadow: 5em 5em rgba(41, 40, 36, 0.8); }
+  grid-template-columns: 2fr auto 1fr; }
   nav a {
     text-decoration: none;
     color: #e1e1e3;
@@ -76,6 +104,8 @@ nav {
   padding: 1em;
   cursor: pointer;
   transition: transform 0.1s; }
+  .chevron-menu:hover {
+    color: #eeeef0; }
 
 #nav-toggle {
   display: none; }
@@ -86,6 +116,8 @@ nav {
   #nav-toggle:checked ~ .chevron-menu:active ~ .nav-menu {
     height: 0;
     border: none; }
+    #nav-toggle:checked ~ .chevron-menu:active ~ .nav-menu a {
+      visibility: hidden; }
 #nav-toggle:checked ~ .nav-menu {
   display: grid;
   -webkit-animation: dropDown 1s;
@@ -93,10 +125,38 @@ nav {
   -ms-animation: dropDown 1s;
   -o-animation: dropDown 1s;
   animation: dropDown 1s;
-  background: #e1e1e3;
+  background-image: -webkit-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
+  background-image: -moz-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
+  background-image: -ms-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
+  background-image: -o-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
+  background-image: linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
   border-top: 0.2em solid #c04011;
   border-bottom: 0.1em solid #292824;
   height: 7.5em; }
+  #nav-toggle:checked ~ .nav-menu a:first-child {
+    -webkit-animation: fadeIn 0.125s 0.125s backwards;
+    -moz-animation: fadeIn 0.125s 0.125s backwards;
+    -ms-animation: fadeIn 0.125s 0.125s backwards;
+    -o-animation: fadeIn 0.125s 0.125s backwards;
+    animation: fadeIn 0.125s 0.125s backwards; }
+  #nav-toggle:checked ~ .nav-menu a:nth-child(2) {
+    -webkit-animation: fadeIn 0.125s 0.25s backwards;
+    -moz-animation: fadeIn 0.125s 0.25s backwards;
+    -ms-animation: fadeIn 0.125s 0.25s backwards;
+    -o-animation: fadeIn 0.125s 0.25s backwards;
+    animation: fadeIn 0.125s 0.25s backwards; }
+  #nav-toggle:checked ~ .nav-menu a:nth-child(3) {
+    -webkit-animation: fadeIn 0.125s 0.375s backwards;
+    -moz-animation: fadeIn 0.125s 0.375s backwards;
+    -ms-animation: fadeIn 0.125s 0.375s backwards;
+    -o-animation: fadeIn 0.125s 0.375s backwards;
+    animation: fadeIn 0.125s 0.375s backwards; }
+  #nav-toggle:checked ~ .nav-menu a:last-child {
+    -webkit-animation: fadeIn 0.125s 0.625s backwards;
+    -moz-animation: fadeIn 0.125s 0.625s backwards;
+    -ms-animation: fadeIn 0.125s 0.625s backwards;
+    -o-animation: fadeIn 0.125s 0.625s backwards;
+    animation: fadeIn 0.125s 0.625s backwards; }
   #nav-toggle:checked ~ .nav-menu a:hover,
   #nav-toggle:checked ~ .nav-menu a:active {
     background: #c04011; }
@@ -121,7 +181,11 @@ nav {
     grid-area: 1/1/1/-1;
     justify-content: flex-start;
     align-items: center;
-    background: #292824;
+    background-image: -webkit-linear-gradient(#44423c, #292824);
+    background-image: -moz-linear-gradient(#44423c, #292824);
+    background-image: -ms-linear-gradient(#44423c, #292824);
+    background-image: -o-linear-gradient(#44423c, #292824);
+    background-image: linear-gradient(#44423c, #292824);
     padding-top: 0;
     border: none;
     height: auto; }
@@ -132,7 +196,11 @@ nav {
     #nav-toggle:checked ~ .nav-menu .nav-right,
     .nav-menu .nav-right {
       margin-left: auto;
-      background: #c04011; }
+      background-image: -webkit-linear-gradient(#eb5219, #c04011);
+      background-image: -moz-linear-gradient(#eb5219, #c04011);
+      background-image: -ms-linear-gradient(#eb5219, #c04011);
+      background-image: -o-linear-gradient(#eb5219, #c04011);
+      background-image: linear-gradient(#eb5219, #c04011); }
 
   #nav-toggle:checked ~ .logo,
   .logo {
@@ -141,7 +209,8 @@ nav {
   height: 100%;
   grid-row: 2;
   display: grid;
-  grid-template-rows: auto 1fr; }
+  grid-template-rows: auto 1fr;
+  overflow: auto; }
 
 .hero-image {
   grid-row: 1;
@@ -189,7 +258,7 @@ nav {
       color: #e1e1e3;
       height: auto;
       width: 60vw;
-      border-radius: 0.2em;
+      border-radius: 0.1em;
       box-shadow: 0.2em 0.2em 0.3em rgba(41, 40, 36, 0.8);
       justify-content: center; } }
 @media only screen and (orientation: landscape) and (min-width: 1024px) {

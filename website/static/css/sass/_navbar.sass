@@ -4,19 +4,26 @@
     to
         height: 7.5em
 
++keyframes(fadeIn)
+    from
+        opacity: 0
+    to
+        opacity: 1
+
 .nav-container
     grid-row: 1
     width: 100%
-    background: $dark
+    //background-image: linear-gradient(lighten($dark, 12.5%), $dark)
+    +linear-gradient(lighten($dark, 12.5%), $dark)
+    box-shadow: 0 0.1em 0.25em rgba($dark, 0.8)
+    z-index: 9999
+    
 
 nav
     max-width: 1720px
     margin: 0 auto
     display: grid
     grid-template-columns: 2fr auto 1fr
-    box-sizing: border-box
-    z-index: 100
-    box-shadow: 5em 5em rgba($dark, 0.8)
 
     a
         text-decoration: none
@@ -64,6 +71,9 @@ nav
 
     transition: transform 0.1s
 
+    &:hover
+        color: lighten($light, 5%)
+
 #nav-toggle
     display: none
 
@@ -76,16 +86,29 @@ nav
         &:active ~ .nav-menu
             height: 0
             border: none    
+
+            a
+                visibility: hidden
     
     & ~ .nav-menu
         display: grid
         +animation(dropDown 1s)
 
-        background: $light
+        //background-image: linear-gradient(to bottom right, lighten($light, 10%), $light)
+        +linear-gradient(to bottom right, lighten($light, 10%), $light)  
         border-top: 0.2em solid $accent
         border-bottom: 0.1em solid $dark
 
         height: 7.5em
+
+        a:first-child
+            +animation(fadeIn 0.125s 0.125s backwards)
+        a:nth-child(2)
+            +animation(fadeIn 0.125s 0.25s backwards)
+        a:nth-child(3)
+            +animation(fadeIn 0.125s 0.375s backwards)
+        a:last-child
+            +animation(fadeIn 0.125s 0.625s backwards)
 
         a:hover,
         a:active
@@ -116,7 +139,9 @@ nav
         grid-area: 1 / 1 / 1 / -1
         justify-content: flex-start
         align-items: center
-        background: $dark
+        
+        //background-image: linear-gradient(lighten($dark, 10%), $dark)
+        +linear-gradient(lighten($dark, 10%), $dark)  
         padding-top: 0
         border: none
         height: auto
@@ -127,7 +152,7 @@ nav
 
         .nav-right
             margin-left: auto
-            background: $accent
+            +linear-gradient(lighten($accent, 10%), $accent)
 
     #nav-toggle:checked ~ .logo,
     .logo
