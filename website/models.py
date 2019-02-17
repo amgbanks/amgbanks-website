@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from PIL import Image
+
 # Create your models here.
 
 class Post(models.Model):
@@ -30,3 +32,28 @@ class Post(models.Model):
 
     def __str__(self):
         return self.page_location + "_" + self.date_created.strftime("%Y%m%d-%H%M%S")
+
+
+class Photo(models.Model):
+    location = models.CharField(max_length=255, blank=True)
+    image = models.ImageField(upload_to='gallery/')
+    date_uploaded = models.DateTimeField(default=timezone.now)
+
+    SMALL = 'small'
+    MEDIUM = 'medium'
+    LARGE = 'large'
+    FULL = 'full'
+    DISPLAY_SIZES = (
+        (SMALL, 'Small'),
+        (MEDIUM, 'Medium'),
+        (LARGE, 'Large'),
+        (FULL, 'Full'),
+    )
+    display_size = models.CharField(
+        max_length=6,
+        choices=DISPLAY_SIZES,
+        default=MEDIUM,
+    )
+
+    def __str__(self):
+        return self.location

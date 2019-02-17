@@ -1,0 +1,25 @@
+{% extends 'website/index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="gallery">
+    <div class="grid">
+
+        {% for photo in photos %}
+
+        <div class="photo photo--{{ photo.display_size }}">
+            
+            <div class="photo-location">
+                <h3>{{ photo.location }}</h3>
+            </div>
+            
+            <img src="{% static photo.image.url %}" alt="{{ photo.location }}">
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock %}
