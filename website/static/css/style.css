@@ -274,19 +274,26 @@ nav {
   padding: 2rem; }
   @media only screen and (min-width: 768px) {
     .gallery {
-      padding: 8rem; } }
+      padding: 4rem 8rem; } }
 @supports(display: grid) {
   .gallery {
     display: block; } }
 .grid {
   display: grid;
+  min-width: 27rem;
+  max-width: 90rem;
+  margin: auto;
+  padding-bottom: 2rem;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   grid-auto-rows: auto;
   grid-auto-flow: row dense; }
-  @media only screen and (min-width: 568px) {
+  @media only screen and (min-width: 605px) {
     .grid {
       grid-auto-rows: 18rem; } }
+  @media only screen and (min-width: 768px) {
+    .grid {
+      padding-bottom: 4rem; } }
 
 .photo {
   box-sizing: border-box;
@@ -294,6 +301,7 @@ nav {
   grid-row-start: auto;
   overflow: hidden;
   position: relative;
+  background: none;
   box-shadow: 0 0 0.25em;
   transition: transform 0.3s ease-out;
   cursor: pointer; }
@@ -312,17 +320,15 @@ nav {
     opacity: 0;
     transition: opacity 0.3s; }
   .photo img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: blur(0em);
-    transition: filter 0.3s; }
+    width: 100%;
+    object-fit: cover; }
   .photo:hover {
     transform: scale(1.02); }
     .photo:hover .photo-location {
       opacity: 1; }
     .photo:hover img {
-      filter: blur(1em); }
+      filter: blur(5px); }
   .photo--medium {
     grid-row-end: span 2; }
   .photo--large {
@@ -334,6 +340,41 @@ nav {
         grid-column: 1/-1;
         grid-row-end: span 2; } }
 
+@-webkit-keyframes reveal {
+  from {
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    transform: scale(1);
+    opacity: 1; } }
+@-moz-keyframes name {
+  from {
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    transform: scale(1);
+    opacity: 1; } }
+@-ms-keyframes name {
+  from {
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    transform: scale(1);
+    opacity: 1; } }
+@-o-keyframes name {
+  from {
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    transform: scale(1);
+    opacity: 1; } }
+@keyframes name {
+  from {
+    transform: scale(1.05);
+    opacity: 0; }
+  to {
+    transform: scale(1);
+    opacity: 1; } }
 * {
   box-sizing: border-box;
   padding: 0;

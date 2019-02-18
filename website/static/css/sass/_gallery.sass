@@ -4,20 +4,28 @@
     padding: 2rem
 
     @media only screen and (min-width: 768px)
-        padding: 8rem
+        padding: 4rem 8rem
 
     @supports(display: grid)
         display: block
 
 .grid
     display: grid
+    min-width: 27rem
+    max-width: 90rem
+    margin: auto
+    padding-bottom: 2rem
+
     grid-gap: 1rem
     grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr))
     grid-auto-rows: auto
     grid-auto-flow: row dense
 
-    @media only screen and (min-width: 568px)
+    @media only screen and (min-width: 605px)
         grid-auto-rows: 18rem
+
+    @media only screen and (min-width: 768px)
+        padding-bottom: 4rem
 
 .photo
     
@@ -27,6 +35,7 @@
     overflow: hidden
     position: relative
 
+    background: none
     box-shadow: 0 0 0.25em
     transition: transform 0.3s ease-out
     cursor: pointer
@@ -49,12 +58,9 @@
         transition: opacity 0.3s
 
     img
-        width: 100%
         height: 100%
+        width: 100%
         object-fit: cover
-
-        filter: blur(0em)
-        transition: filter 0.3s
 
     &:hover
         transform: scale(1.02)
@@ -63,7 +69,8 @@
             opacity: 1
 
         img
-            filter: blur(1em)
+            filter: blur(5px)
+
 
     &--medium
         grid-row-end: span 2
@@ -78,3 +85,10 @@
             grid-column: 1 / -1
             grid-row-end: span 2
 
++keyframes(reveal)
+    from
+        transform: scale(1.05)
+        opacity: 0
+    to
+        transform: scale(1)
+        opacity: 1

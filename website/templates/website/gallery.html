@@ -7,13 +7,14 @@
 
         {% for photo in photos %}
 
-        <div class="photo photo--{{ photo.display_size }}">
+        <div class="photo photo--{{ photo.display_size }}" oncontextmenu="return false;">
             
             <div class="photo-location">
                 <h3>{{ photo.location }}</h3>
             </div>
             
-            <img src="{% static photo.image.url %}" alt="{{ photo.location }}">
+            <img src="{% static photo.lazy_image.url %}" data-src="{% static photo.thumb_image.url %}" class="lazy" alt="{{ photo.location }}" >
+            
         </div>
 
         {% endfor %}

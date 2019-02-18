@@ -34,9 +34,15 @@ class Post(models.Model):
         return self.page_location + "_" + self.date_created.strftime("%Y%m%d-%H%M%S")
 
 
+
+def upload_path(instance, filename):
+    return 'gallery/{}/{}'.format(instance.location,filename)
+
 class Photo(models.Model):
     location = models.CharField(max_length=255, blank=True)
-    image = models.ImageField(upload_to='gallery/')
+    full_image = models.ImageField(upload_to=upload_path)
+    thumb_image = models.ImageField(upload_to=upload_path)
+    lazy_image = models.ImageField(upload_to=upload_path)
     date_uploaded = models.DateTimeField(default=timezone.now)
 
     SMALL = 'small'

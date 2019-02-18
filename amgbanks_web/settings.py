@@ -44,6 +44,7 @@ PREREQ_APPS = [
 ]
 USER_APPS = [
     'website',
+    'django_cleanup.apps.CleanupConfig',
 ]
 INSTALLED_APPS = PREREQ_APPS + USER_APPS
 
