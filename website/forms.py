@@ -6,7 +6,6 @@ class PhotoForm(forms.ModelForm):
         model = Photo
         fields = (
             'location',
-            #'image',
             'full_image',
             'thumb_image',
             'lazy_image',

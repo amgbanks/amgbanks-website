@@ -1,26 +1,48 @@
 {% extends 'website/index.html' %}
 {% load static %}
 
+{% block title %} | Photography{% endblock %}
+
+
 {% block content %}
 <div class="gallery">
     <div class="grid">
 
         {% for photo in photos %}
 
-        <div class="photo photo--{{ photo.display_size }}" oncontextmenu="return false;">
+        <div class="photo photo--{{ photo.display_size }}" oncontextmenu="return false;" onclick="openModal();currentSlide({{ forloop.counter }})">
             
             <div class="photo-location">
                 <h3>{{ photo.location }}</h3>
             </div>
             
-            <img src="{% static photo.lazy_image.url %}" data-src="{% static photo.thumb_image.url %}" class="lazy" alt="{{ photo.location }}" >
+            <img src="{% static photo.lazy_image.url %}" data-src="{% static photo.thumb_image.url %}" data-modal="{% static photo.full_image.url %}" class="lazy img--in-grid" alt="{{ photo.location }}" oncontextmenu="return false">
             
         </div>
 
         {% endfor %}
     </div>
+
+</div>
+
+<!-- Lightbox modal -->
+<div id="gallery-modal" class="modal">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="view-image" oncontextmenu="return false">
+        
+        <div class="modal-controls">
+            <a id="prev-arrow" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a id="next-arrow" class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <img id="modal-image" class="img--in-view" oncontextmenu="return false">
+        
+        <h3 id="modal-location"></h3>
+        
+    </div>
 </div>
 
 
+<script type="text/javascript" src="{% static 'js/gallery.js' %}"></script>
 
 {% endblock %}

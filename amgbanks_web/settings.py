@@ -45,6 +45,7 @@ PREREQ_APPS = [
 USER_APPS = [
     'website',
     'django_cleanup.apps.CleanupConfig',
+    'tinymce',
 ]
 INSTALLED_APPS = PREREQ_APPS + USER_APPS
 
@@ -138,5 +139,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+TINYMCE_DEFAULT_CONFIG = {
+        'plugins': "spellchecker,paste,searchreplace",
+        'theme': "advanced",
+        'cleanup_on_startup': True,
+        'custom_undo_redo_levels': 10,
+}
 
 django_heroku.settings(locals())

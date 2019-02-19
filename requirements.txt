@@ -4,3 +4,4 @@ django-heroku
 whitenoise
 Pillow
 django-cleanup
+django-tinymce

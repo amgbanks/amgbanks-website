@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from tinymce.models import HTMLField
 
 from PIL import Image
 
@@ -8,7 +9,8 @@ from PIL import Image
 class Post(models.Model):
 
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    #text = models.TextField()
+    text = HTMLField()
     date_created = models.DateTimeField(default=timezone.now)
 
     HOME = 'HM'
@@ -46,19 +48,21 @@ class Photo(models.Model):
     date_uploaded = models.DateTimeField(default=timezone.now)
 
     SMALL = 'small'
-    MEDIUM = 'medium'
     LARGE = 'large'
+    HIGH = 'high'
+    TALL = 'tall'
     FULL = 'full'
     DISPLAY_SIZES = (
         (SMALL, 'Small'),
-        (MEDIUM, 'Medium'),
         (LARGE, 'Large'),
+        (HIGH, 'High'),
+        (TALL, 'Tall'),
         (FULL, 'Full'),
     )
     display_size = models.CharField(
         max_length=6,
         choices=DISPLAY_SIZES,
-        default=MEDIUM,
+        default=SMALL,
     )
 
     def __str__(self):

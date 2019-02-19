@@ -7,8 +7,8 @@
     
     <div class="welcome">
         <div class="welcome-wrapper">
-            <h1 class="welcome-title">{{ welcome.title }}</h1>
-            <h4 class="welcome-text">{{ welcome.text }}</h4>
+            <h1 class="welcome-title">{{ welcome.title | safe }}</h1>
+            <h4 class="welcome-text">{{ welcome.text | safe }}</h4>
         </div>
     </div>
     
