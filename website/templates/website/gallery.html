@@ -16,7 +16,7 @@
                 <h3>{{ photo.location }}</h3>
             </div>
             
-            <img src="{{ photo.lazy_image.url }}" data-src="{{ static photo.thumb_image.url }}" data-modal="{{ static photo.full_image.url }}" class="lazy img--in-grid" alt="{{ photo.location }}" oncontextmenu="return false">
+            <img src="{{ photo.lazy_image.url }}" data-src="{{ photo.thumb_image.url }}" data-modal="{{ photo.full_image.url }}" class="lazy img--in-grid" alt="{{ photo.location }}" oncontextmenu="return false">
             
         </div>
 
