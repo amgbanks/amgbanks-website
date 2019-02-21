@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/login/', auth_views.LoginView.as_view()),
+    path('login/', auth_views.LoginView.as_view()),
     path('', include('website.urls')),
     path('tinymce/', include('tinymce.urls')),
 ]
