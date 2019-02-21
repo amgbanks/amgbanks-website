@@ -138,7 +138,7 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/media')
 
 TINYMCE_DEFAULT_CONFIG = {
         'plugins': "spellchecker,paste,searchreplace",
