@@ -23,7 +23,8 @@ AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_DEFAULT_ACL = None
 AWS_STORAGE_BUCKET_NAME = 'amgbanks-assets'
-AWS_S3_CUSTOM_DOMAIN = '{}.s3.amazonaws.com'.format(AWS_STORAGE_BUCKET_NAME)
+AWS_S3_REGION_NAME = 'us-east-2'
+AWS_S3_CUSTOM_DOMAIN = 's3.{}.amazonaws.com/{}'.format(AWS_S3_REGION_NAME,AWS_STORAGE_BUCKET_NAME)
 
 AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
