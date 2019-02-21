@@ -28,7 +28,7 @@ SECRET_KEY = '7=ye0q(5!93+=3_*4d3wt5eju!9zsy=anmsk2pq#usyh9)xb3!'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-        'www.amgbanks.com',
+        'www.amgbanks.com','amgbanks.herokuapp.com',
 ]
 
 
