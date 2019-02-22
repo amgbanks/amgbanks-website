@@ -342,6 +342,8 @@ nav {
     font-weight: normal;
     font-variant: small-caps;
     transform: scaleX(1.25); }
+  .photo .lazy {
+    filter: blur(2vw); }
   .photo .img--in-grid {
     height: 100%;
     width: 100%;

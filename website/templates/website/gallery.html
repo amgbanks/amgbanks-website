@@ -5,7 +5,7 @@
 
 
 {% block content %}
-<div class="gallery">
+<div class="gallery gallery-main">
     <div class="grid">
 
         {% for photo in photos %}
@@ -22,8 +22,26 @@
 
         {% endfor %}
     </div>
-
 </div>
+
+<noscript>
+    <div class="gallery gallery-nojava">
+        <div class="grid">
+            {% for photo in photos %}
+            <div class="photo photo--{{ photo.display_size }}" oncontextmenu="return false;">
+                <div class="photo-location">
+                    <h3>{{ photo.location }}</h3>
+                </div>
+                <img src="{{ photo.thumb_image.url }}" class="img--in-grid" alt="{{ photo.location }}" oncontextmenu="return false;">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style type="text/css">
+        .gallery-main { display: none; }
+    </style>
+</noscript>
 
 <!-- Lightbox modal -->
 <div id="gallery-modal" class="modal">
