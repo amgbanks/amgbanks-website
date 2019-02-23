@@ -30,20 +30,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // Lightbox modal
+var modalWindow = document.getElementById('gallery-modal')
+var modalImage = document.getElementById('modal-image')
+var starttime
+
+function animateOpen(timestamp, el, shown, duration) {
+    var timestamp = timestamp || new Date().getTime()
+    var runtime = timestamp - starttime
+    var progress = runtime / duration
+    progress = Math.min(progress, 1)
+
+    if (el.style.opacity < shown) {
+        el.style.transform = "scale(" + (shown * progress).toFixed(2) + ")"
+        el.style.opacity = (shown * progress).toFixed(2)
+    } else if (el.style.opacity > shown) {
+        el.style.transform = "scale(" + (1 - ((1 - shown) * progress)).toFixed(2)
+        el.style.opacity = (1 - ((1 - shown) * progress)).toFixed(2)
+    }
+
+    if (runtime < duration) {
+        requestAnimationFrame(function(timestamp) {
+            animateOpen(timestamp, el, shown, duration)
+        })
+    }
+}
+
 function openModal() {
-    document.getElementById('gallery-modal').style.display = "grid";
-    setTimeout(function() {
-        document.getElementById('gallery-modal').style.transform = "scale(1,1)";
-        document.getElementById('gallery-modal').style.opacity = "1";
-    }, 100);
+    modalWindow.style.display = "grid";
+    requestAnimationFrame(function(timestamp) {
+        starttime = timestamp || new Date().getTime()
+        animateOpen(timestamp, modalWindow, 1, 250)
+    })
 }
 
 function closeModal() {
-    document.getElementById('gallery-modal').style.transform = "scale(0,0)";
-    document.getElementById('gallery-modal').style.opacity = "0";
+    requestAnimationFrame(function(timestamp) {
+        starttime = timestamp || new Date().getTime()
+        animateOpen(timestamp, modalWindow, 0, 250)
+    })
     setTimeout(function() {
-        document.getElementById('gallery-modal').style.display = "none";
-    }, 250);
+        modalWindow.style.display = "none";
+    }, 300);
 }
 
 var slideIndex = 1;
@@ -62,24 +89,55 @@ document.onkeydown = function(e) {
     }
 }
 
+function slideTransition(timestamp, el, n, duration) {
+    var timestamp = timestamp || new Date().getTime()
+    var runtime = timestamp - starttime
+    var progress = runtime / duration
+    progress = Math.min(progress, 1)
+    var opacity = 0
+    el.style.opacity = (1 - ((1 - opacity) * progress)).toFixed(2)
+
+    if (runtime < duration) {
+        requestAnimationFrame(function(timestamp) {
+            slideTransition(timestamp, el, n, duration)
+        })
+    } else {
+        function nextSlide(timestamp, el, duration) {
+            var timestamp = timestamp || new Date().getTime()
+            var runtime = timestamp - starttime
+            var progress = runtime / duration
+            progress = Math.min(progress, 1)
+            var opacity = 1
+            el.style.opacity = (opacity * progress).toFixed(2)
+
+            if (runtime < duration) {
+                requestAnimationFrame(function(timestamp) {
+                    nextSlide(timestamp, el, duration)
+                })
+            }
+        }
+
+        setTimeout(function() {
+            modalImage.onload = requestAnimationFrame(function(timestamp) {
+                starttime = timestamp || new Date().getTime()
+                nextSlide(timestamp, el, duration)
+            })
+        }, 100);
+
+        showSlides(slideIndex += n)
+    }
+}
+
+
 function plusSlides(n) {
-    document.getElementById('modal-image').style.opacity = "0";
-    setTimeout(function() {
-        showSlides(slideIndex += n);
-    }, 250);
-    setTimeout(function() {
-        document.getElementById('modal-image').style.opacity = "1";
-    }, 350);
+    requestAnimationFrame(function(timestamp) {
+        starttime = timestamp || new Date().getTime()
+        slideTransition(timestamp, modalImage, n, 250)
+    })
 }
 
 function currentSlide(n) {
-    document.getElementById('modal-image').style.opacity = "0";
-    setTimeout(function() {
-        showSlides(slideIndex = n);
-    }, 250);
-    setTimeout(function() {
-        document.getElementById('modal-image').style.opacity = "1";
-    }, 350);
+    showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
@@ -88,9 +146,8 @@ function showSlides(n) {
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     
-    var mod = document.getElementById('modal-image')
-    mod.src = slides[slideIndex-1].dataset.modal
-    mod.alt = slides[slideIndex-1].alt
+    modalImage.src = slides[slideIndex-1].dataset.modal
+    modalImage.alt = slides[slideIndex-1].alt
 
     var loc = document.getElementById('modal-location')
     loc.textContent = slides[slideIndex-1].alt
