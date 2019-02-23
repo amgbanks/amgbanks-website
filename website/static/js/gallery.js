@@ -32,10 +32,18 @@ document.addEventListener("DOMContentLoaded", function() {
 // Lightbox modal
 function openModal() {
     document.getElementById('gallery-modal').style.display = "grid";
+    setTimeout(function() {
+        document.getElementById('gallery-modal').style.transform = "scale(1,1)";
+        document.getElementById('gallery-modal').style.opacity = "1";
+    }, 100);
 }
 
 function closeModal() {
-    document.getElementById('gallery-modal').style.display = "none";
+    document.getElementById('gallery-modal').style.transform = "scale(0,0)";
+    document.getElementById('gallery-modal').style.opacity = "0";
+    setTimeout(function() {
+        document.getElementById('gallery-modal').style.display = "none";
+    }, 250);
 }
 
 var slideIndex = 1;
@@ -45,21 +53,33 @@ showSlides(slideIndex);
 
 document.onkeydown = function(e) {
     e = e || window.event;
-    if (e.keyCode == '37') {
-        //plusSlides(-1)
-        document.getElementById("prev-arrow").click();
+    if (e.keyCode == '27') {
+        closeModal()
+    } else if (e.keyCode == '37') {
+        plusSlides(-1)
     } else if (e.keyCode == '39') {
-        //plusSlides(1)
-        document.getElementById("next-arrow").click();
+        plusSlides(1)
     }
 }
 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    document.getElementById('modal-image').style.opacity = "0";
+    setTimeout(function() {
+        showSlides(slideIndex += n);
+    }, 250);
+    setTimeout(function() {
+        document.getElementById('modal-image').style.opacity = "1";
+    }, 350);
 }
 
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    document.getElementById('modal-image').style.opacity = "0";
+    setTimeout(function() {
+        showSlides(slideIndex = n);
+    }, 250);
+    setTimeout(function() {
+        document.getElementById('modal-image').style.opacity = "1";
+    }, 350);
 }
 
 function showSlides(n) {
@@ -75,5 +95,3 @@ function showSlides(n) {
     var loc = document.getElementById('modal-location')
     loc.textContent = slides[slideIndex-1].alt
 }
-
-
