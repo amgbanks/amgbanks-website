@@ -47,17 +47,18 @@
 <div id="gallery-modal" class="modal">
     <span class="close cursor" onclick="closeModal()">&times;</span>
     <div class="view-image" oncontextmenu="return false">
-        
+         
         <div class="modal-controls">
             <a id="prev-arrow" class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a id="next-arrow" class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         
-        <img id="modal-image" class="img--in-view" oncontextmenu="return false">
-        
-        <h3 id="modal-location"></h3>
+        <div class="image-container">
+            <img id="modal-image" class="img--in-view" oncontextmenu="return false">
+        </div>
         
     </div>
+    <h3 id="modal-location">{{ photo.location }}</h3>
 </div>
 
 

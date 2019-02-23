@@ -1,6 +1,6 @@
 // Lazy load images
 document.addEventListener("DOMContentLoaded", function() {
-    /*var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
     if ("IntersectionObserver" in window) {
         let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
         lazyImages.forEach(function(lazyImage) {
             lazyImageObserver.observe(lazyImage);
         });
-    } else {*/
+    } else {
         var lazyImages = document.querySelectorAll(".lazy");
         lazyImages.forEach(function(img) {
             img.src = img.dataset.src;
             img.classList.remove('lazy');
         });
-    //}
+    }
 });
 
 

@@ -1,4 +1,6 @@
 .gallery
+    position: relative
+    z-index: 1
     grid-row: 2
     grid-column: 1 / -1
     display: none
@@ -111,7 +113,7 @@
 
 
 // Modal
-.modal
+/*.modal
     display: none
     z-index: 9998
     grid-row: 2
@@ -125,8 +127,9 @@
     grid-template-columns: 1fr
     grid-template-rows: min-content 1fr
 
-    overflow: auto
-
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+        -webkit-backdrop-filter: blur(1vw)
+        backdrop-filter: blur(1vw)
 
     .close
         grid-row: 1
@@ -157,8 +160,6 @@
 
         box-sizing: border-box
         padding: 2rem 2rem
-        
-        //border: 0.1rem solid $light
 
         .modal-controls
             z-index: 1
@@ -191,7 +192,6 @@
             display: flex
             object-fit: contain
             display: block
-
             box-shadow: 0 0 0.1rem rgba($light, 0.5)
             
         #modal-location
@@ -203,4 +203,84 @@
             padding-top: 2rem
             font-weight: normal
             font-variant: small-caps
-            transform: scaleX(1.25)
+            transform: scaleX(1.25)*/
+
+.modal
+    
+    position: relative
+    z-index: 2
+    display: none
+    grid-row: 2
+    grid-column: 1 / -1
+
+    min-width: 0
+    min-height: 0
+
+    grid-template-rows: min-content 1fr min-content
+    grid-template-columns: 1fr
+
+    background: rgba($dark, 0.95)
+
+    .close
+        grid-row: 1
+        justify-self: end
+        font-weight: bold
+        font-size: 4rem
+        cursor: pointer
+        color: darken($light, 5%)
+        padding-right: 2rem
+
+        &:hover
+            color: lighten($light, 5%)
+
+    .view-image
+        grid-row: 2
+        min-width: 0
+        min-height: 0
+
+        display: grid
+        grid-template-rows: 1fr
+        grid-template-columns: 1fr
+
+        .modal-controls
+            z-index: 2
+            grid-row: 1
+            grid-column: 1
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+            .prev,
+            .next
+                font-weight: bold
+                font-size: 4rem
+                color: darken($light, 5%)
+                cursor: pointer
+                padding: 2rem
+
+                &:hover
+                    color: lighten($light, 5%)
+
+        .image-container
+            grid-row: 1
+            grid-column: 1
+            display: flex
+            min-width: 0
+            min-height: 0
+
+            .img--in-view
+                width: 100%
+                height: 100%
+                object-fit: contain
+
+    #modal-location
+        grid-row: 3
+        justify-self: center
+        align-self: end
+        font-weight: normal
+        font-variant: small-caps
+        padding: 2rem
+        transform: scaleX(1.25)
+        color: $light
+
+        
