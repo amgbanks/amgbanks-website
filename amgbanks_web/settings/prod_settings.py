@@ -15,6 +15,8 @@ PROD_APPS = [
 
 INSTALLED_APPS += PROD_APPS
 
+ROOT_URLCONF = 'amgbanks_web.urls.prod_urls'
+
 STATICFILES_DIRS = [
         os.path.join('static'),
 ]
