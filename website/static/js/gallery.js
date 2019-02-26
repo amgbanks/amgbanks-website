@@ -34,23 +34,23 @@ var modalWindow = document.getElementById('gallery-modal')
 var modalImage = document.getElementById('modal-image')
 var starttime
 
-function animateOpen(timestamp, el, shown, duration) {
+function animateDisplay(timestamp, el, scale, opacity, duration) {
     var timestamp = timestamp || new Date().getTime()
     var runtime = timestamp - starttime
     var progress = runtime / duration
     progress = Math.min(progress, 1)
 
-    if (el.style.opacity < shown) {
-        el.style.transform = "scale(" + (shown * progress).toFixed(2) + ")"
-        el.style.opacity = (shown * progress).toFixed(2)
-    } else if (el.style.opacity > shown) {
-        el.style.transform = "scale(" + (1 - ((1 - shown) * progress)).toFixed(2)
-        el.style.opacity = (1 - ((1 - shown) * progress)).toFixed(2)
+    if (el.style.opacity < opacity) {
+        el.style.transform = "scale(" + (scale * progress).toFixed(2) + ")"
+        el.style.opacity = (opacity * progress).toFixed(2)
+    } else if (el.style.opacity > opacity) {
+        el.style.transform = "scale(" + (1 - ((1 - scale) * progress)).toFixed(2)
+        el.style.opacity = (1 - ((1 - opacity) * progress)).toFixed(2)
     }
 
     if (runtime < duration) {
         requestAnimationFrame(function(timestamp) {
-            animateOpen(timestamp, el, shown, duration)
+            animateDisplay(timestamp, el, scale, opacity, duration)
         })
     }
 }
@@ -59,14 +59,20 @@ function openModal() {
     modalWindow.style.display = "grid";
     requestAnimationFrame(function(timestamp) {
         starttime = timestamp || new Date().getTime()
-        animateOpen(timestamp, modalWindow, 1, 250)
+        animateDisplay(timestamp, modalWindow, 1, 1, 250)
     })
+
+    setTimeout(function() {
+        for (i = 0; i < controls.length; i++) {
+            controls[i].style.opacity = 0
+        }
+    }, 3000);
 }
 
 function closeModal() {
     requestAnimationFrame(function(timestamp) {
         starttime = timestamp || new Date().getTime()
-        animateOpen(timestamp, modalWindow, 0, 250)
+        animateDisplay(timestamp, modalWindow, 0, 0, 250)
     })
     setTimeout(function() {
         modalWindow.style.display = "none";
@@ -151,4 +157,51 @@ function showSlides(n) {
 
     var loc = document.getElementById('modal-location')
     loc.textContent = slides[slideIndex-1].alt
+}
+
+// Controls fade in and out
+var controls = modalWindow.querySelectorAll('.control');
+var timeout;
+
+modalWindow.addEventListener('mousemove', function() {
+    /*for (i = 0; i < controls.length; i++) {
+        requestAnimationFrame(function(timestamp) {
+            starttime = timestamp || new Date().getTime()
+            animateDisplay(timestamp, controls[i], 1, 1, 500)
+        })
+    }*/
+
+    /*controls.forEach(function(el) {
+        requestAnimationFrame(function(timestamp) {
+            starttime = timestamp || new Date().getTime()
+            animateDisplay(timestamp, el, 1, 1, 500)
+        })
+    })*/
+    
+    for (var i = 0; i < controls.length; i++) {
+        controls[i].style.opacity = 1
+    }
+
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(mouseStop, 3000);
+});
+
+function mouseStop() {
+    /*for (i = 0; i < controls.length; i++) {
+        requestAnimationFrame(function(timestamp) {
+            starttime = timestamp || new Date().getTime()
+            animateDisplay(timestamp, controls[i], 1, 0, 500)
+        })
+    }*/
+
+    /*controls.forEach(function(el) {
+        requestAnimationFrame(function(timestamp) {
+            starttime = timestamp || new Date().getTime()
+            animateDisplay(timestamp, el, 1, 0, 500)
+        })
+    })*/
+
+    for (var i = 0; i < controls.length; i++) {
+        controls[i].style.opacity = 0
+    }
 }
