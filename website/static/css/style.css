@@ -216,7 +216,7 @@ nav {
   grid-row: 1;
   grid-column: 1;
   height: 51.6666666667vw;
-  background: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/hvalnes/hvalnes_lqr600x310.jpg");
+  background: url("/static/media/backgrounds/hvalnes_lqr_600x300.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain; }
@@ -256,7 +256,7 @@ nav {
 
   .hero-image {
     height: 100%;
-    background-image: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/hvalnes/hvalnes_lqr1600x827.jpg");
+    background-image: url("/static/media/backgrounds/hvalnes_lqr_2400x1200.jpg");
     background-size: cover; }
 
   .welcome {
