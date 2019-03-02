@@ -11,3 +11,25 @@ class PhotoForm(forms.ModelForm):
             'lazy_image',
             'display_size',
         )
+
+class ContactForm(forms.Form):
+    your_name = forms.CharField(
+            required=True,
+            min_length=2,
+            max_length=75,
+    )
+    your_email = forms.EmailField(
+            required=True,
+            max_length=75,
+    )
+    subject = forms.CharField(
+            required=True,
+            min_length=5,
+            max_length=50,
+    )
+    message = forms.CharField(
+            widget=forms.Textarea,
+            required=True,
+            min_length=100,
+            max_length=3000,
+    )

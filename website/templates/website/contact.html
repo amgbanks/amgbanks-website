@@ -1,0 +1,16 @@
+{% load static %}
+
+<div id="contact">
+    <div id="contact-wrapper" class="contact-wrapper">
+        <span id="contact-close" class="close control" onclick="closeContactForm();">&times;</span>
+        
+        <form method="POST" id="contact-form" action="{% url 'contact' %}">
+            {% csrf_token %}
+            {{ contact.as_p }}
+            <button type="submit" value="Send">Get in touch!</button>
+        </form>
+        <p id="contact-message"></p>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/contact.js' %}"></script>

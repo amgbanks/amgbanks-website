@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_tags %}
 
 <!DOCTYPE html>
 
@@ -15,6 +16,8 @@
         
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css">
+
+        <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
         
         <!-- favicons
         <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/favicon/apple-touch-icon-180.png' %}">
@@ -28,35 +31,36 @@
     </head>
 
     <body>
-
-        <!--<div class="main-content">-->
         
-            <!-- navbar for all pages -->
-            <div class="nav-container">
-                <nav>
-                    <input type="checkbox" id="nav-toggle">
-                    <label for="nav-toggle" class="chevron-menu">
-                         <i class="fas fa-chevron-down"></i>
-                    </label>
+        <!-- navbar for all pages -->
+        <div class="nav-container">
+            <nav>
+                <input type="checkbox" id="nav-toggle">
+                <label for="nav-toggle" class="chevron-menu">
+                    <i class="fas fa-chevron-down"></i>
+                </label>
                     
-                    <div class="nav-menu">
-                        <a title="Coming Soon" href="#">About</a>
-                        <a title="Coming Soon" href="#">Resume</a>
-                        <a href="{% url 'gallery' %}">Photography</a>
-                        <a title="Coming Soon" href="#" class="nav-right">Contact</a>
-                    </div>
+                <div class="nav-menu">
+                    <a title="Coming Soon" href="#">About</a>
+                    <a title="Coming Soon" href="#">Resume</a>
+                    <a href="{% url 'gallery' %}">Photography</a>
+                    <a  class="nav-right" onclick="openContactForm();">Contact</a>
+                </div>
                         
-                    <a href="/" class="logo">Andrew Banks</a>
+                <a href="/" class="logo">Andrew Banks</a>
 
 
 
-                </nav>
-            </div>
+            </nav>
+        </div>
 
-            {% block content %}
-            {% endblock %}
+        {% block content %}
+        {% endblock %}
 
-            <!--</div>-->
+        
+
+        {% contact request %}
+
 
     </body>
 </html>

@@ -1,7 +1,11 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
-from .models import Post, Photo
-from .forms import PhotoForm
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, JsonResponse
+from django.core.mail import send_mail, BadHeaderError
+
+from .models import Post, Photo
+from .forms import PhotoForm, ContactForm
 
 # Create your views here.
 
@@ -32,3 +36,38 @@ def photo_upload(request):
     else:
             form = PhotoForm()
     return render(request, 'website/photo_upload.html', {'form':form})
+
+def contact_submission(request):
+    if request.POST:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+
+            name = form.cleaned_data['your_name']
+            from_email = form.cleaned_data['your_email']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            try:
+                send_mail(
+                        subject,
+                        'From: {}\nSender\'s Email: {}\n\n\n{}'.format(
+                            name,
+                            from_email,
+                            message
+                        ),
+                        settings.EMAIL_HOST_USER,
+                        [settings.EMAIL_RECIPIENT],
+                        fail_silently = False
+                )
+            except BadHeaderError:
+                err_mes = 'Bad header found.'
+                d = {'submission-error':err_mes}
+                return JsonResponse(d)
+            except:
+                err_mes = 'Something went wrong! Please check your connection and try again.'
+                d = {'submission-error':err_mes}
+                return JsonResponse(d)
+            return JsonResponse({'success':True})
+        else:
+            return JsonResponse({'validation-error':form.errors})
+    return HttpResponse("Hello from feedback!")

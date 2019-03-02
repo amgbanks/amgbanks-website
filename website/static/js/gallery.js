@@ -44,7 +44,7 @@ function animateDisplay(timestamp, el, scale, opacity, duration) {
         el.style.transform = "scale(" + (scale * progress).toFixed(2) + ")"
         el.style.opacity = (opacity * progress).toFixed(2)
     } else if (el.style.opacity > opacity) {
-        el.style.transform = "scale(" + (1 - ((1 - scale) * progress)).toFixed(2)
+        el.style.transform = "scale(" + (1 - ((1 - scale) * progress)).toFixed(2) + ")"
         el.style.opacity = (1 - ((1 - opacity) * progress)).toFixed(2)
     }
 
