@@ -10,9 +10,13 @@
     font-size: 2rem
     font-weight: bold
     color: $light
-    background: rgba($dark, 0.5)
+    background: rgba($dark, 0)
     overflow-x: hidden
-    opacity: 0
+    opacity: 1
+
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)
+        -webkit-backdrop-filter: blur(1vw)
+        backdrop-filter: blur(1vw)
 
 .contact-wrapper
     position: relative

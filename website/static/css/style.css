@@ -58,7 +58,7 @@
   background-image: -o-linear-gradient(#4b4942, #292824);
   background-image: linear-gradient(#4b4942, #292824);
   box-shadow: 0 0.16rem 0.4rem rgba(41, 40, 36, 0.8);
-  z-index: 9999; }
+  z-index: 9998; }
 
 nav {
   width: 100%;
@@ -473,9 +473,13 @@ nav {
   font-size: 2rem;
   font-weight: bold;
   color: #e1e1e3;
-  background: rgba(41, 40, 36, 0.5);
+  background: rgba(41, 40, 36, 0);
   overflow-x: hidden;
-  opacity: 0; }
+  opacity: 1; }
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    #contact {
+      -webkit-backdrop-filter: blur(1vw);
+      backdrop-filter: blur(1vw); } }
 
 .contact-wrapper {
   position: relative;
@@ -503,7 +507,7 @@ nav {
     .contact-wrapper p input,
     .contact-wrapper p textarea {
       font-size: 1.8rem;
-      font-family: Droid Sans, sans-serif;
+      font-family: "Cabin", sans-serif;
       background: #e1e1e3;
       color: #292824;
       border-radius: 0.5rem;
@@ -565,7 +569,7 @@ body {
   max-width: 100%; }
 
 body {
-  font-family: Droid Sans, sans-serif;
+  font-family: "Cabin", sans-serif;
   background-color: #eeeef0;
   display: grid;
   grid-template-rows: min-content 1fr;
@@ -585,5 +589,8 @@ body {
     font-size: 1.325rem; }
   body h6 {
     font-size: 1.06rem; }
+
+[data-tip] {
+  color: #c04011; }
 
 /*# sourceMappingURL=style.css.map */

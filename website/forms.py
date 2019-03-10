@@ -17,6 +17,10 @@ class ContactForm(forms.Form):
             required=True,
             min_length=2,
             max_length=75,
+            error_messages={
+                'invalid':'test',
+                'required':'Test',
+            },
     )
     your_email = forms.EmailField(
             required=True,
@@ -28,7 +32,9 @@ class ContactForm(forms.Form):
             max_length=50,
     )
     message = forms.CharField(
-            widget=forms.Textarea,
+            widget=forms.Textarea(
+                attrs={'placeholder':"Minimum 100 characters...\n\nWant to connect? Send me a message!"},
+            ),
             required=True,
             min_length=100,
             max_length=3000,

@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css">
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin">
+
         <script type="text/javascript" src="{% static 'js/jquery-3.3.1.js' %}"></script>
         
         <!-- favicons
@@ -44,7 +46,7 @@
                     <a title="Coming Soon" href="#">About</a>
                     <a title="Coming Soon" href="#">Resume</a>
                     <a href="{% url 'gallery' %}">Photography</a>
-                    <a  class="nav-right" onclick="openContactForm();">Contact</a>
+                    <a  id="contact-button" class="nav-right" onclick="openContactForm();">Contact</a>
                 </div>
                         
                 <a href="/" class="logo">Andrew Banks</a>
