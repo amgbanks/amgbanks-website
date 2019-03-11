@@ -45,7 +45,7 @@ function animateContactForm(timestamp, open, bg, wrap, opacity, pos, duration) {
 
     if (open == true) {
         bg.style.backgroundColor = "rgba(41, 40, 36, " + (opacity * progress).toFixed(2) + ")"
-        wrap.style.left = (50 - ((50 - pos) * progress).toFixed(2)) + "%"
+        wrap.style.left = (100 - ((100 - pos) * progress).toFixed(2)) + "%"
     } else {
         bg.style.backgroundColor = "rgba(41, 40, 36, " + (0.5 - ((0.5 - opacity) * progress)).toFixed(2) + ")"
         wrap.style.left = (pos * progress).toFixed(2) + "%"
@@ -71,7 +71,7 @@ function openContactForm() {
 function closeContactForm() {
     requestAnimationFrame(function(timestamp) {
         starttime = timestamp || new Date().getTime()
-        animateContactForm(timestamp, false, contactModal, contactWrapper, 0, 50, 250)
+        animateContactForm(timestamp, false, contactModal, contactWrapper, 0, 100, 250)
     })
     setTimeout(function() {
         contactModal.style.display = "none";

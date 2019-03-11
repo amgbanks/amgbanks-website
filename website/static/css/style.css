@@ -84,6 +84,8 @@ nav {
   .nav-menu a {
     color: #292824;
     padding: 0.5rem 0; }
+  .nav-menu .nav-right {
+    cursor: pointer; }
 
 .logo {
   grid-column: 1;
@@ -202,7 +204,10 @@ nav {
       background-image: linear-gradient(#eb5219, #c04011); }
       #nav-toggle:checked ~ .nav-menu .nav-right:hover,
       .nav-menu .nav-right:hover {
-        cursor: pointer; }
+        background: #eb5219; }
+      #nav-toggle:checked ~ .nav-menu .nav-right:active,
+      .nav-menu .nav-right:active {
+        background: #c04011; }
 
   #nav-toggle:checked ~ .logo,
   .logo {
@@ -484,7 +489,7 @@ nav {
 .contact-wrapper {
   position: relative;
   overflow: auto;
-  left: 50%;
+  left: 100%;
   width: 100%;
   background-image: -webkit-linear-gradient(#44423c, #292824, #44423c);
   background-image: -moz-linear-gradient(#44423c, #292824, #44423c);

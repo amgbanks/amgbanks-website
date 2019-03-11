@@ -49,6 +49,9 @@ nav
         color: $dark
         padding: 0.5rem 0
 
+    .nav-right
+        cursor: pointer
+
 .logo
     grid-column: 1
     grid-row: 1
@@ -151,7 +154,10 @@ nav
             +linear-gradient(lighten($accent, 10%), $accent)
 
             &:hover
-                cursor: pointer
+                background: lighten($accent, 10%)
+
+            &:active
+                background: $accent
 
     #nav-toggle:checked ~ .logo,
     .logo

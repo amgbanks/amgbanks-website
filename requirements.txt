@@ -7,3 +7,4 @@ django-cleanup
 django-tinymce
 boto3
 django-storages
+psycopg2-binary
