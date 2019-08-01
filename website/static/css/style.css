@@ -52,12 +52,12 @@
   grid-row: 1;
   width: 100%;
   line-height: 1;
-  background-image: -webkit-linear-gradient(#4b4942, #292824);
-  background-image: -moz-linear-gradient(#4b4942, #292824);
-  background-image: -ms-linear-gradient(#4b4942, #292824);
-  background-image: -o-linear-gradient(#4b4942, #292824);
-  background-image: linear-gradient(#4b4942, #292824);
-  box-shadow: 0 0.16rem 0.4rem rgba(41, 40, 36, 0.8);
+  background-image: -webkit-linear-gradient(#192a3b, #060a0e);
+  background-image: -moz-linear-gradient(#192a3b, #060a0e);
+  background-image: -ms-linear-gradient(#192a3b, #060a0e);
+  background-image: -o-linear-gradient(#192a3b, #060a0e);
+  background-image: linear-gradient(#192a3b, #060a0e);
+  box-shadow: 0 0.16rem 0.4rem rgba(6, 10, 14, 0.8);
   z-index: 9998; }
 
 nav {
@@ -67,13 +67,13 @@ nav {
   grid-template-columns: 2fr auto 1fr; }
   nav a {
     text-decoration: none;
-    color: #e1e1e3;
+    color: #d0e7ff;
     font-size: 1.4rem;
     font-weight: bold; }
     nav a:hover {
-      color: #eeeef0; }
+      color: #eaf4ff; }
     nav a:active {
-      color: #b8babf; }
+      color: #84c0ff; }
 
 .nav-menu {
   display: none;
@@ -82,7 +82,7 @@ nav {
   padding: 0.05rem 0;
   text-align: center; }
   .nav-menu a {
-    color: #292824;
+    color: #060a0e;
     padding: 0.5rem 0; }
   .nav-menu .nav-right {
     cursor: pointer; }
@@ -101,7 +101,7 @@ nav {
   grid-column: 3;
   grid-row: 1;
   margin: auto 0 auto auto;
-  color: #e1e1e3;
+  color: #d0e7ff;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -111,7 +111,7 @@ nav {
   transform: scale(1, 1);
   transition: transform 0.1s; }
   .chevron-menu:hover {
-    color: #eeeef0; }
+    color: #eaf4ff; }
 
 #nav-toggle {
   display: none; }
@@ -131,12 +131,12 @@ nav {
   -ms-animation: dropDown 1s;
   -o-animation: dropDown 1s;
   animation: dropDown 1s;
-  background-image: -webkit-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
-  background-image: -moz-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
-  background-image: -ms-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
-  background-image: -o-linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
-  background-image: linear-gradient(to bottom right, #fbfbfc, #e1e1e3);
-  border-top: 0.2rem solid #c04011;
+  background-image: -webkit-linear-gradient(to bottom right, white, #d0e7ff);
+  background-image: -moz-linear-gradient(to bottom right, white, #d0e7ff);
+  background-image: -ms-linear-gradient(to bottom right, white, #d0e7ff);
+  background-image: -o-linear-gradient(to bottom right, white, #d0e7ff);
+  background-image: linear-gradient(to bottom right, white, #d0e7ff);
+  border-top: 0.2rem solid #ff4040;
   height: 10rem; }
   #nav-toggle:checked ~ .nav-menu a:first-child {
     -webkit-animation: fadeIn 0.125s 0.125s backwards;
@@ -164,11 +164,11 @@ nav {
     animation: fadeIn 0.125s 0.625s backwards; }
   #nav-toggle:checked ~ .nav-menu a:hover,
   #nav-toggle:checked ~ .nav-menu a:active {
-    background-image: linear-gradient(to right, #c04011, #eb5219, #c04011); }
+    background-image: linear-gradient(to right, #ff4040, #ff7373, #ff4040); }
   #nav-toggle:checked ~ .nav-menu a:hover {
-    color: #fbfbfc; }
+    color: white; }
   #nav-toggle:checked ~ .nav-menu a:active {
-    color: #e1e1e3; }
+    color: #d0e7ff; }
 
 @media only screen and (min-width: 768px) {
   #nav-toggle,
@@ -181,33 +181,33 @@ nav {
     grid-area: 1/1/1/-1;
     justify-content: flex-start;
     align-items: center;
-    background-image: -webkit-linear-gradient(#44423c, #292824);
-    background-image: -moz-linear-gradient(#44423c, #292824);
-    background-image: -ms-linear-gradient(#44423c, #292824);
-    background-image: -o-linear-gradient(#44423c, #292824);
-    background-image: linear-gradient(#44423c, #292824);
+    background-image: -webkit-linear-gradient(#152432, #060a0e);
+    background-image: -moz-linear-gradient(#152432, #060a0e);
+    background-image: -ms-linear-gradient(#152432, #060a0e);
+    background-image: -o-linear-gradient(#152432, #060a0e);
+    background-image: linear-gradient(#152432, #060a0e);
     border: none;
     height: auto;
     padding: 0; }
     #nav-toggle:checked ~ .nav-menu a,
     .nav-menu a {
       font-size: 1.8rem;
-      color: #e1e1e3;
+      color: #d0e7ff;
       padding: 1rem; }
     #nav-toggle:checked ~ .nav-menu .nav-right,
     .nav-menu .nav-right {
       margin-left: auto;
-      background-image: -webkit-linear-gradient(#eb5219, #c04011);
-      background-image: -moz-linear-gradient(#eb5219, #c04011);
-      background-image: -ms-linear-gradient(#eb5219, #c04011);
-      background-image: -o-linear-gradient(#eb5219, #c04011);
-      background-image: linear-gradient(#eb5219, #c04011); }
+      background-image: -webkit-linear-gradient(#ff7373, #ff4040);
+      background-image: -moz-linear-gradient(#ff7373, #ff4040);
+      background-image: -ms-linear-gradient(#ff7373, #ff4040);
+      background-image: -o-linear-gradient(#ff7373, #ff4040);
+      background-image: linear-gradient(#ff7373, #ff4040); }
       #nav-toggle:checked ~ .nav-menu .nav-right:hover,
       .nav-menu .nav-right:hover {
-        background: #eb5219; }
+        background: #ff7373; }
       #nav-toggle:checked ~ .nav-menu .nav-right:active,
       .nav-menu .nav-right:active {
-        background: #c04011; }
+        background: #ff4040; }
 
   #nav-toggle:checked ~ .logo,
   .logo {
@@ -224,8 +224,8 @@ nav {
 .hero-image {
   grid-row: 1;
   grid-column: 1;
-  height: 50vw;
-  background: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/hvalnes_lqr_1200x600.jpg");
+  height: 55.5833333333vw;
+  background: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/mtcook_oilify_1200x667.jpg");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain; }
@@ -243,7 +243,7 @@ nav {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 2.5rem;
-    color: #292824; }
+    color: #060a0e; }
   .welcome h1 {
     padding-bottom: 0.25rem; }
   .welcome a {
@@ -251,13 +251,13 @@ nav {
     font-size: 1.05em;
     font-variant: small-caps;
     letter-spacing: 0.1rem;
-    color: #373530;
+    color: #0e1720;
     opacity: 0.8;
-    border-bottom: 0.1em solid rgba(55, 53, 48, 0);
+    border-bottom: 0.1em solid rgba(14, 23, 32, 0);
     transition: opacity 1s, border-color 1s; }
     .welcome a:hover {
       opacity: 1;
-      border-color: #373530; }
+      border-color: #0e1720; }
 
 @media only screen and (min-width: 568px) {
   .home-content {
@@ -265,7 +265,7 @@ nav {
 
   .hero-image {
     height: 100%;
-    background-image: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/hvalnes_lqr_2400x1200.jpg");
+    background-image: url("https://s3.us-east-2.amazonaws.com/amgbanks-assets/static/media/backgrounds/mtcook_oilify_2400x1333.jpg");
     background-size: cover; }
 
   .welcome {
@@ -275,24 +275,24 @@ nav {
     justify-content: center;
     align-items: center; }
     .welcome a {
-      color: #eeeef0;
-      border-color: rgba(238, 238, 240, 0); }
+      color: #eaf4ff;
+      border-color: rgba(234, 244, 255, 0); }
       .welcome a:hover {
-        border-color: #eeeef0; }
+        border-color: #eaf4ff; }
     .welcome .welcome-wrapper {
-      background: rgba(41, 40, 36, 0.8);
-      color: #e1e1e3;
+      background: rgba(6, 10, 14, 0.8);
+      color: #d0e7ff;
       height: auto;
       width: 60vw;
       border-radius: 0.1rem;
-      box-shadow: 0.32rem 0.32rem 0.32rem rgba(41, 40, 36, 0.8);
+      box-shadow: 0.32rem 0.32rem 0.32rem rgba(6, 10, 14, 0.8);
       justify-content: center; }
       @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
         .welcome .welcome-wrapper {
           -webkit-backdrop-filter: blur(2vw);
           backdrop-filter: blur(2vw);
-          background: rgba(41, 40, 36, 0.75);
-          box-shadow: 0.32rem 0.32rem 0.1rem rgba(41, 40, 36, 0.75); } } }
+          background: rgba(6, 10, 14, 0.75);
+          box-shadow: 0.32rem 0.32rem 0.1rem rgba(6, 10, 14, 0.75); } } }
 @media only screen and (orientation: landscape) and (min-width: 1024px) {
   .welcome {
     align-items: flex-start;
@@ -352,8 +352,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(192, 64, 17, 0.4);
-    color: #fbfbfc;
+    background: rgba(255, 64, 64, 0.4);
+    color: white;
     opacity: 0;
     transition: opacity 0.5s;
     font-weight: normal;
@@ -403,7 +403,7 @@ nav {
   min-height: 0;
   grid-template-rows: min-content 1fr min-content;
   grid-template-columns: 1fr;
-  background: rgba(41, 40, 36, 0.95); }
+  background: rgba(6, 10, 14, 0.95); }
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .modal {
       -webkit-backdrop-filter: blur(1vw);
@@ -416,10 +416,10 @@ nav {
     font-weight: bold;
     font-size: 4rem;
     cursor: pointer;
-    color: #d3d4d7;
+    color: #b7daff;
     padding-right: 2rem; }
     .modal .close:hover {
-      color: #eeeef0; }
+      color: #eaf4ff; }
   .modal .view-image {
     grid-row: 2;
     min-width: 0;
@@ -438,12 +438,12 @@ nav {
       .modal .view-image .modal-controls .next {
         font-weight: bold;
         font-size: 4rem;
-        color: #d3d4d7;
+        color: #b7daff;
         cursor: pointer;
         padding: 2rem; }
         .modal .view-image .modal-controls .prev:hover,
         .modal .view-image .modal-controls .next:hover {
-          color: #eeeef0; }
+          color: #eaf4ff; }
     .modal .view-image .image-container {
       grid-row: 1;
       grid-column: 1;
@@ -455,7 +455,7 @@ nav {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: drop-shadow(0 0 0.1rem rgba(225, 225, 227, 0.5)); }
+        filter: drop-shadow(0 0 0.1rem rgba(208, 231, 255, 0.5)); }
   .modal #modal-location {
     grid-row: 3;
     justify-self: center;
@@ -464,7 +464,7 @@ nav {
     font-variant: small-caps;
     padding: 2rem;
     transform: scaleX(1.25);
-    color: #e1e1e3; }
+    color: #d0e7ff; }
 
 #contact {
   grid-row: 2;
@@ -477,8 +477,8 @@ nav {
   justify-content: flex-end;
   font-size: 2rem;
   font-weight: bold;
-  color: #e1e1e3;
-  background: rgba(41, 40, 36, 0);
+  color: #d0e7ff;
+  background: rgba(6, 10, 14, 0);
   overflow-x: hidden;
   opacity: 1; }
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -491,18 +491,18 @@ nav {
   overflow: auto;
   left: 100%;
   width: 100%;
-  background-image: -webkit-linear-gradient(#44423c, #292824, #44423c);
-  background-image: -moz-linear-gradient(#44423c, #292824, #44423c);
-  background-image: -ms-linear-gradient(#44423c, #292824, #44423c);
-  background-image: -o-linear-gradient(#44423c, #292824, #44423c);
-  background-image: linear-gradient(#44423c, #292824, #44423c);
+  background-image: -webkit-linear-gradient(#152432, #060a0e, #152432);
+  background-image: -moz-linear-gradient(#152432, #060a0e, #152432);
+  background-image: -ms-linear-gradient(#152432, #060a0e, #152432);
+  background-image: -o-linear-gradient(#152432, #060a0e, #152432);
+  background-image: linear-gradient(#152432, #060a0e, #152432);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-content: flex-start;
-  border-top: 0.2rem solid #c04011;
+  border-top: 0.2rem solid #ff4040;
   padding: 0 2rem;
-  box-shadow: 0 0 1rem rgba(41, 40, 36, 0.8); }
+  box-shadow: 0 0 1rem rgba(6, 10, 14, 0.8); }
   .contact-wrapper p {
     display: flex;
     flex-direction: column;
@@ -512,35 +512,35 @@ nav {
     .contact-wrapper p input,
     .contact-wrapper p textarea {
       font-size: 1.8rem;
-      font-family: "Cabin", sans-serif;
-      background: #e1e1e3;
-      color: #292824;
+      font-family: "Fira Sans", sans-serif;
+      background: #d0e7ff;
+      color: #060a0e;
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
-      box-shadow: inset 0 0 0.5rem rgba(41, 40, 36, 0.8);
+      box-shadow: inset 0 0 0.5rem rgba(6, 10, 14, 0.8);
       border: none; }
   .contact-wrapper button {
     align-self: flex-end;
     font-size: 1.8rem;
     font-weight: bold;
-    color: #e1e1e3;
+    color: #d0e7ff;
     margin: 1rem 0;
     padding: 1rem;
     border-radius: 0.5rem;
-    background-image: -webkit-linear-gradient(#eb5219, #c04011);
-    background-image: -moz-linear-gradient(#eb5219, #c04011);
-    background-image: -ms-linear-gradient(#eb5219, #c04011);
-    background-image: -o-linear-gradient(#eb5219, #c04011);
-    background-image: linear-gradient(#eb5219, #c04011);
+    background-image: -webkit-linear-gradient(#ff7373, #ff4040);
+    background-image: -moz-linear-gradient(#ff7373, #ff4040);
+    background-image: -ms-linear-gradient(#ff7373, #ff4040);
+    background-image: -o-linear-gradient(#ff7373, #ff4040);
+    background-image: linear-gradient(#ff7373, #ff4040);
     border: none;
-    box-shadow: 0 0 1rem #292824;
+    box-shadow: 0 0 1rem #060a0e;
     cursor: pointer; }
     .contact-wrapper button:hover {
-      background: #eb5219;
-      color: #fbfbfc; }
+      background: #ff7373;
+      color: white; }
     .contact-wrapper button:active {
-      background: #c04011;
-      color: #d3d4d7; }
+      background: #ff4040;
+      color: #b7daff; }
 
 #contact-message {
   font-size: 1.2rem; }
@@ -553,7 +553,7 @@ nav {
   font-size: 3rem;
   cursor: pointer; }
   .close:hover {
-    color: #fbfbfc; }
+    color: white; }
 
 @media only screen and (min-width: 768px) {
   .contact-wrapper {
@@ -574,14 +574,14 @@ body {
   max-width: 100%; }
 
 body {
-  font-family: "Cabin", sans-serif;
-  background-color: #eeeef0;
+  font-family: "Fira Sans", sans-serif;
+  background-color: #eaf4ff;
   display: grid;
   grid-template-rows: min-content 1fr;
   grid-template-columns: 1fr; }
   body ::selection {
-    background: rgba(192, 64, 17, 0.7);
-    color: #fbfbfc; }
+    background: rgba(255, 64, 64, 0.7);
+    color: white; }
   body h1 {
     font-size: 3.2rem; }
   body h2 {
@@ -596,6 +596,6 @@ body {
     font-size: 1.06rem; }
 
 [data-tip] {
-  color: #c04011; }
+  color: #ff4040; }
 
 /*# sourceMappingURL=style.css.map */
